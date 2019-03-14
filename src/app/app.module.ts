@@ -20,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+//import {ToastModule} from 'ng2-toastr/ng2-toastr';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -39,8 +41,9 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ToastModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+    //ToastModule.forRoot(),
 
     // RouterModule forRoot method to declare possible routes in application
     RouterModule.forRoot([
