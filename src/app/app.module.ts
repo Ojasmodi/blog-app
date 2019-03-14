@@ -16,7 +16,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BlogService } from './blog.service';
 import { BlogHttpService } from './blog-http.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+
+import { FormsModule } from '@angular/forms';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+
 
 
 @NgModule({
@@ -30,10 +35,12 @@ import { CommonModule } from '@angular/common';
     AboutComponent
   ],
   imports: [
-     BrowserModule,
+    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastModule.forRoot(),
 
     // RouterModule forRoot method to declare possible routes in application
     RouterModule.forRoot([

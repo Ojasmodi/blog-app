@@ -13,15 +13,26 @@ export class BlogHttpService {
 
   public allBlogs;
   public currentBlog;
-  public baseUrl = 'http://blogapp.edwisor.com/api/v1/blogs';
-// tslint:disable-next-line: max-line-length
-// tslint:disable-next-line: quotemark
+  public baseUrl = 'https://blogapp.edwisor.com/api/v1/blogs';
+  // tslint:disable-next-line: max-line-length
+  // tslint:disable-next-line: quotemark
+  // tslint:disable-next-line: max-line-length
   public accessToken = `NWJiODgxNjgzODkwM2YxZjRhY2U5Y2M4ODJmZjc0ZjRjOWJlY2RlN2Q0M2RmZjZiMTYxOTExN2NiNTg3OWIzMDA3ZjViNmRkYzcwMzE3NzEwYmFlNjM0ZDRjZGY0MzkwZWEwMjQwYTI3NzNhYzU0MDMyMzFjOTkxZjA1NjI1YTE5Mg==`;
 
   constructor(private _http: HttpClient) { }
 
   getAllBlogs(): any {
-    let response = this._http.get(this.baseUrl + '/all?authToken=' + this.accessToken);
+    const response = this._http.get(this.baseUrl + '/all?authToken=' + this.accessToken);
+    return response;
+  }
+
+  getSingleBlogById(currentBlogId): any {
+    const response = this._http.get(this.baseUrl + '/view/' + currentBlogId + '?authToken=' + this.accessToken);
+    return response;
+  }
+
+  createBlog(blogData): any {
+    const response=this._http.post(this.baseUrl + '/create/?authToken=' + this.accessToken, blogData)
     return response;
   }
 }

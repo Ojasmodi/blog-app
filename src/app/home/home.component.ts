@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
      this.blogHttpService.getAllBlogs().subscribe(
       data => {
-        this.allBlogs = data["data"];
-
+        this.allBlogs = data['data'];
       },
       error => {
         console.log(error.errorMessage);

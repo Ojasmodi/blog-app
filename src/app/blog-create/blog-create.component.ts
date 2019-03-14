@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { BlogHttpService } from '../blog-http.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-blog-create',
@@ -7,9 +11,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogCreateComponent implements OnInit {
 
-  constructor() { }
+  public blogTitle: string;
+  public blogBodyHtml: string;
+  public blogDescription: string;
+  public blogCategory: string = "dummy";
+  public possibleCategories: ["Comedy", "Drama", "Action", "Technology"];
+
+  constructor(public toastr: ToastsManager, vcr: ViewContainerRef,
+    public blogHttpService: BlogHttpService, private _route: ActivatedRoute, private router: Router) {
+
+    this.toastr.setRootViewContainerRef(vcr);
+  }
 
   ngOnInit() {
+  }
+
+  public createBlog(): any {
+
+    let blogData = {
+
+      title: this.blogTitle,
+      description: this.blogDescription,
+      blogBody: this.blogBodyHtml,
+      category: this.blogCategory
+    }
+    console.log(blogData);
+    this.blogHttpService.createBlog(blogData).subscribe(
+
+      data => {
+        console.log("Blog created");
+        console.log(data);
+        this.toastr.success('Blog created successfully');
+        setTimeout(() => {
+          this.router.navigate(['/blog', data.data.blogId]);
+        }, 1000);
+      },
+
+      error => {
+        console.log("error occured");
+        console.log(error.errorMessage);
+        alert("Some error occured");
+      }
+    )
+
+
   }
 
 }
