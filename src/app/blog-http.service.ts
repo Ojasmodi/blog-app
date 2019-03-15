@@ -32,7 +32,18 @@ export class BlogHttpService {
   }
 
   createBlog(blogData): any {
-    const response=this._http.post(this.baseUrl + '/create/?authToken=' + this.accessToken, blogData)
+    const response = this._http.post(this.baseUrl + '/create/?authToken=' + this.accessToken, blogData)
+    return response;
+  }
+
+  deleteBlog(blogId): any {
+    const data = {};
+    const response = this._http.post(this.baseUrl + '/' + blogId + '/delete?authToken=' + this.accessToken, data);
+    return response;
+  }
+
+  editBlog(blogId, blogData): any {
+    const response = this._http.put(this.baseUrl + '/' + blogId + '/edit?authToken=' + this.accessToken, blogData)
     return response;
   }
 }
