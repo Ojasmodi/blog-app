@@ -15,11 +15,12 @@ import { Location } from '@angular/common';
 export class BlogViewComponent implements OnInit {
 
   public currentBlog;
+  public myBlogId;
   constructor(private location : Location, private toastr: ToastrService, public _route: ActivatedRoute, public router: Router, public blogService: BlogService, public blogHttpService: BlogHttpService) { }
 
   ngOnInit() {
-    let myBlogId = this._route.snapshot.paramMap.get('blogId');
-    this.currentBlog = this.blogHttpService.getSingleBlogById(myBlogId).subscribe(
+    this.myBlogId = this._route.snapshot.paramMap.get('blogId');
+    this.currentBlog = this.blogHttpService.getSingleBlogById(this.myBlogId).subscribe(
       data => {
         this.currentBlog = data['data'];
       },
@@ -30,7 +31,7 @@ export class BlogViewComponent implements OnInit {
   }
 
   deleteMyBlog(): any {
-    this.blogHttpService.deleteBlog(this.currentBlog.BlogId).subscribe(
+    this.blogHttpService.deleteBlog(this.myBlogId).subscribe(
 
       data => {
         console.log(data);

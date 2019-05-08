@@ -12,26 +12,37 @@ import { BlogHttpService } from '../blog-http.service';
 export class BlogEditComponent implements OnInit {
 
   public currentBlog;
+ //  public currentBlog1;
+  public myBlogId;
   public possibleCategories: ["Comedy", "Drama", "Action", "Technology"];
 
-  constructor(private toastr: ToastrService, public _route: ActivatedRoute, public router: Router, public blogService: BlogService, public blogHttpService: BlogHttpService) { }
+  constructor(
+    private toastr: ToastrService,
+    public _route: ActivatedRoute,
+    public router: Router,
+    public blogService: BlogService,
+    public blogHttpService: BlogHttpService) { }
 
 
   ngOnInit() {
-    let myBlogId = this._route.snapshot.paramMap.get('blogId');
-    console.log(myBlogId);
-    this.currentBlog = this.blogHttpService.getSingleBlogById(myBlogId).subscribe(
+    this.myBlogId = this._route.snapshot.paramMap.get('blogId');
+    console.log(this.myBlogId);
+    this.currentBlog = this.blogHttpService.getSingleBlogById(this.myBlogId).subscribe(
       data => {
         this.currentBlog = data['data'];
+        console.log(data['data']);
       },
       error => {
         console.log(error.errorMessage);
       }
     )
+    console.log(this.currentBlog.title);
   }
 
   editThisBlog(): any {
-    this.blogHttpService.editBlog(this.currentBlog.BlogId, this.currentBlog).subscribe(
+    // console.log(this.currentBlog.title);
+    // console.log(this.currentBlog.blogId)
+    this.blogHttpService.editBlog(this.myBlogId, this.currentBlog).subscribe(
 
       data => {
         console.log(data);
@@ -43,7 +54,6 @@ export class BlogEditComponent implements OnInit {
       error => {
         console.log("some error occured");
         console.log((error.errorMessage));
-        this
       }
     )
   }

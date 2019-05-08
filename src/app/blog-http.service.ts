@@ -13,12 +13,12 @@ export class BlogHttpService {
 
   public allBlogs;
   public currentBlog;
-  public baseUrl = 'https://blogapp.edwisor.com/api/v1/blogs';
+  public baseUrl = 'http://localhost:3000/api/v1/blogs';
   // tslint:disable-next-line: max-line-length
   // tslint:disable-next-line: quotemark
   // tslint:disable-next-line: max-line-length
-  public accessToken = `NWJiODgxNjgzODkwM2YxZjRhY2U5Y2M4ODJmZjc0ZjRjOWJlY2RlN2Q0M2RmZjZiMTYxOTExN2NiNTg3OWIzMDA3ZjViNmRkYzcwMzE3NzEwYmFlNjM0ZDRjZGY0MzkwZWEwMjQwYTI3NzNhYzU0MDMyMzFjOTkxZjA1NjI1YTE5Mg==`;
-
+  // public accessToken = `ZjZiNzE4ZWRjNDVjODZiMzA0ZDE0MDM4NTcwOTc2OGVjZGRkNzA4MzAxMzdhYzdlZDg0YjQ2ODJlMWZjOTVkZjY5MzdlODhlYWJiMTlkNjc5OTQwZDA1OGZkOTNmNTI3NjNmZTllMWJiNGY5N2Q4MTVhYTViOWI2ZGQxOWZiNDEyYg==`;
+  public accessToken= 'Admin';
   constructor(private _http: HttpClient) { }
 
   getAllBlogs(): any {

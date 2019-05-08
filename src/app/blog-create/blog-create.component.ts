@@ -14,11 +14,11 @@ export class BlogCreateComponent implements OnInit {
   public blogTitle: string;
   public blogBodyHtml: string;
   public blogDescription: string;
-  public blogCategory: string = "dummy";
-  public possibleCategories: ["Comedy", "Drama", "Action", "Technology"];
+  public blogCategory: string;
+  public possibleCategories= ["Comedy", "Drama", "Action", "Technology"];
 
   constructor( private toastr: ToastrService, 
-    public blogHttpService: BlogHttpService, private _route: ActivatedRoute, private router: Router) {
+    public blogHttpService: BlogHttpService, private router: Router) {
 
     //this.toastr.setRootViewContainerRef(vcr);
   }
