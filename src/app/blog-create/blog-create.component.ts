@@ -50,7 +50,7 @@ export class BlogCreateComponent implements OnInit {
       error => {
         console.log("error occured");
         console.log(error.errorMessage);
-        alert("Some error occured");
+        //alert("Some error occured");
       }
     )
 

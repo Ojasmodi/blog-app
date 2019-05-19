@@ -4,22 +4,32 @@
       <br><br><br><br>
     </div>
     <div class="row" style="text-align:center" >
-      <div *ngFor="let blog of allBlogs" class="col-md-6" >
-  
-        <div class="panel panel-default">
+      <div *ngFor="let blog of allBlogs;index as i;odd as odd;even as even" class="col-md-6">
+        <div *ngIf="odd || even">
+        <div class="panel panel-default border border-info ">
           <div class="panel-heading">{{blog.title | uppercase}}</div>
           <div class="panel-body">
-           
+            <p>{{blog.category}}</p>
+            <p>{{blog.description}}</p>
+          </div>
+          <div class="panel-footer text-muted">Posted on {{blog.created | date}}<br> by {{blog.author}}
+          <br><br><a [routerLink]="['/blog',blog.blogId]" class="btn btn-info">Read</a>
+          </div>
+       </div>
+      </div>
+      <!--<div *ngIf="even">
+          <div class="panel panel-default border border-info bg-success text-white">
+            <div class="panel-heading">{{blog.title | uppercase}}</div>
+            <div class="panel-body">
+              <p>{{blog.category}}</p>
               <p>{{blog.description}}</p>
-          </div>
-          <div class="panel-footer">Posted on {{blog.created | date}}<br> by {{blog.author}}
-          <br><br><a [routerLink]="['/blog',blog.blogId]" class="btn btn-primary">Read</a>
-          
-          </div>
-          
-        </div>
-  
-        <br>
+            </div>
+            <div class="panel-footer text-muted">Posted on {{blog.created | date}}<br> by {{blog.author}}
+            <br><br><a [routerLink]="['/blog',blog.blogId]" class="btn btn-info">Read</a>
+            </div>
+         </div>
+        </div>-->
+   <br>
       </div>
   
     </div>

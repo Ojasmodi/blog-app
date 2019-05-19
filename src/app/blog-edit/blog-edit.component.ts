@@ -14,7 +14,7 @@ export class BlogEditComponent implements OnInit {
   public currentBlog;
  //  public currentBlog1;
   public myBlogId;
-  public possibleCategories: ["Comedy", "Drama", "Action", "Technology"];
+  public possibleCategories= ["Comedy", "Drama", "Action", "Technology"];
 
   constructor(
     private toastr: ToastrService,
