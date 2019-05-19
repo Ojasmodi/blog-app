@@ -13,7 +13,7 @@ export class BlogHttpService {
 
   public allBlogs;
   public currentBlog;
-  public baseUrl = 'http://localhost:3000/api/v1/blogs';
+  public baseUrl = 'http://backend.myinfo.world/api/v1/blogs';
   // tslint:disable-next-line: max-line-length
   // tslint:disable-next-line: quotemark
   // tslint:disable-next-line: max-line-length
