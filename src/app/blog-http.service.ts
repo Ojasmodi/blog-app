@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpClientModule } from '@angular/common/http';
 
-// import observable related code
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { tap, map } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,11 +8,7 @@ export class BlogHttpService {
 
   public allBlogs;
   public currentBlog;
-  public baseUrl = 'http://backend.myinfo.world/api/v1/blogs';
-  // tslint:disable-next-line: max-line-length
-  // tslint:disable-next-line: quotemark
-  // tslint:disable-next-line: max-line-length
-  // public accessToken = `ZjZiNzE4ZWRjNDVjODZiMzA0ZDE0MDM4NTcwOTc2OGVjZGRkNzA4MzAxMzdhYzdlZDg0YjQ2ODJlMWZjOTVkZjY5MzdlODhlYWJiMTlkNjc5OTQwZDA1OGZkOTNmNTI3NjNmZTllMWJiNGY5N2Q4MTVhYTViOWI2ZGQxOWZiNDEyYg==`;
+  public baseUrl = 'http://blogback.myinfo.world/api/v1/blogs';
   public accessToken= 'Admin';
   constructor(private _http: HttpClient) { }
 
