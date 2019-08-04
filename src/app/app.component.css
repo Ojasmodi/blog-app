@@ -1,0 +1,54 @@
+
+.header{    
+    width: 100%; 
+}
+
+.header div{
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 10px;
+    border: 2px dotted red;
+    text-align: center;
+    
+}
+.header div:hover,
+.header div:active{
+    color:dodgerblue;
+    text-decoration-line: underline;
+}
+
+.navstyle{
+    display: inline-block;
+    background: teal;
+    width: 100%;
+    border-bottom: outset 2px red;
+    
+}
+
+.navstyle .ul{
+    list-style: none;
+    display: inline-flex;
+    text-align: right;
+    padding: 9px;
+    margin-bottom: 0;
+}
+
+.ul li{
+    padding: 0 8px;
+
+}
+
+li>a{
+    color: yellow;
+    text-decoration: none;
+    
+}
+
+li>a:hover,
+li>a:active
+{
+  color:red;
+  font-weight: bold;
+}

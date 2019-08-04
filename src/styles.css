@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-.header{
-    background-color: #04192E;
-    display: block;
-    padding: 3%;
-    color:white;
-    font-size: 26px;
+*{
+    font-family: 'Noto Serif', serif;
+    box-sizing: border-box;
+}
+
+html body{
+        margin:0 0.5rem;
 }
 
